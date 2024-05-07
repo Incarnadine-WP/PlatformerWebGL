@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aed17e97470bae4c88b1f929a9e865d, type: 3}
+  m_Name: 1.GameSoundsClipsSO
+  m_EditorClassIdentifier: 
+  FootStep: {fileID: 8300000, guid: cd1a74c23f005f54f884373bf1d4c1e0, type: 3}
+  Jump: {fileID: 8300000, guid: 8510a493bf7387a44a46f9d7aee1d5b5, type: 3}
+  Heal: {fileID: 8300000, guid: 96327be0f437af04d8aeb7be9455bd71, type: 3}
+  TakeSymbolKey: {fileID: 8300000, guid: b7f7ffbc22df753468ca880b3a91a65f, type: 3}
+  HurtEnemy: {fileID: 8300000, guid: 267439079fd827043815619caeb98d31, type: 3}
+  HurtPlayer: {fileID: 8300000, guid: 16c55660ccddc574e8a951e632257194, type: 3}
+  PlayerAttack: {fileID: 8300000, guid: 83d1f628ca6e135499abe0b67089c1a6, type: 3}
+  SkeletonAttack: {fileID: 8300000, guid: 1bab779ee918a1347ac0492c92209e03, type: 3}
+  BatCharge: {fileID: 8300000, guid: 9de645aed580efd48a7cb163f1114853, type: 3}
+  BossCharge: {fileID: 8300000, guid: 195b1fde934b7b744b13b84fa65235a4, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 255a32bf10a87674cb88ddcb54e8410d, type: 3}
+  SpellFireEarth: {fileID: 8300000, guid: a6410926481b15d49aaa789fd269d127, type: 3}
+  SpellFireBallFly: {fileID: 8300000, guid: 309e7cc7ee71e9b488ee14103b071e18, type: 3}
+  SpellFireBallExplosion: {fileID: 8300000, guid: d1698dd553af8ef4d887bc83b9687173, type: 3}
