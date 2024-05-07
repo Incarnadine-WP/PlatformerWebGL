@@ -112,8 +112,7 @@ public class PlayerController : MonoBehaviour
 
         _isRuning = _inputVector != Vector2.zero;
 
-        // gamepad stick
-        if (_inputVector.y < -0.6f)
+        if (_inputVector.y < 0)
             if (_platform != null)
                 StartCoroutine(DisablePlatformCollision());
     }
@@ -212,11 +211,9 @@ public class PlayerController : MonoBehaviour
         if (_isClimbing)
         {
             _player.PlayerRigidbody.gravityScale = 0f;
-
             _player.PlayerRigidbody.velocity = new Vector2(_player.PlayerRigidbody.velocity.x, _inputVector.y * _player.PlayerStats.Speed);
             _animator.PlayLadderAnim(Mathf.Abs(_inputVector.y));
             _animator.IsGroundTrigger(_isLadder);
-
         }
         else
         {
