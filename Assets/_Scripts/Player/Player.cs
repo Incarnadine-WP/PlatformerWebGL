@@ -84,7 +84,6 @@ public class Player : MonoBehaviour, IDamageable, IAttacker
     #region IDamagable
     public void Die()
     {
-        Debug.Log("You died!");
         OnDeathAction?.Invoke();
         PlayerController.Instance.DisablePlayerController();
     }
