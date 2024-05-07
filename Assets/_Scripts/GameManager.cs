@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        CursorVisible(false);
+
         _restart.onClick.AddListener(RestartScene);
         _continue.onClick.AddListener(GamePause);
 
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.65f;
         yield return delay;
         _menuPanel.SetActive(true);
+        _restart.Select();
     }
 
     private IEnumerator ShowVictoryPanel()
@@ -76,6 +79,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.65f;
         yield return delay;
         _victoryPanel.SetActive(true);
+    }
+
+    private void CursorVisible(bool isVisible)
+    {
+        Cursor.visible = isVisible;
     }
 
     private void GamePause()
@@ -88,13 +96,16 @@ public class GameManager : MonoBehaviour
             _menuPanel.SetActive(true);
             _isPaused = true;
             _continue.gameObject.SetActive(true);
+            _continue.Select();
             Time.timeScale = 0f;
+            CursorVisible(true);
         }
         else
         {
             PlayerController.Instance.SubscribePlayerController();
             _menuPanel.SetActive(false);
             _continue.gameObject.SetActive(false);
+            CursorVisible(false);
             _isPaused = false;
             Time.timeScale = 1f;
         }
