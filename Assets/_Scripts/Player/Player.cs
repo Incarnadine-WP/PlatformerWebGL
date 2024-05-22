@@ -24,6 +24,8 @@ public class Player : MonoBehaviour, IDamageable, IAttacker
     public UnitStats PlayerStats => _unitStats;
     public int KeySymbolCount => _keySymbolCount;
 
+    [HideInInspector]public int CurrentHP;
+
     public UnityAction OnDamageAction;
     public UnityAction OnHealAction;
     public UnityAction OnDeathAction;
@@ -43,14 +45,14 @@ public class Player : MonoBehaviour, IDamageable, IAttacker
     {
         InitPlayerHP();
 
-        OnHealAction += () => _playerHealthBar.SetCurrentHealth(_unitStats.CurrentHp);
-        OnDamageAction += () => _playerHealthBar.SetCurrentHealth(_unitStats.CurrentHp);
+        OnHealAction += () => _playerHealthBar.SetCurrentHealth(CurrentHP);
+        OnDamageAction += () => _playerHealthBar.SetCurrentHealth(CurrentHP);
         OnTakeKeySymbol += AddKeySymbol;
     }
 
     private void OnDisable()
     {
-        OnHealAction -= () => _playerHealthBar.SetCurrentHealth(_unitStats.CurrentHp);
+        OnHealAction -= () => _playerHealthBar.SetCurrentHealth(CurrentHP);
         OnTakeKeySymbol -= AddKeySymbol;
     }
 
@@ -69,14 +71,14 @@ public class Player : MonoBehaviour, IDamageable, IAttacker
     {
         if (PlayerData.Instance.IsFirstScene)
         {
-            _unitStats.CurrentHp = _unitStats.MaxHp;
+            CurrentHP = _unitStats.MaxHp;
             _playerHealthBar.SetMaxHealth(_unitStats.MaxHp);
-            _playerHealthBar.SetCurrentHealth(_unitStats.CurrentHp);
+            _playerHealthBar.SetCurrentHealth(CurrentHP);
         }
         else
         {
             _playerHealthBar.SetMaxHealth(_unitStats.MaxHp);
-            _unitStats.CurrentHp = PlayerData.Instance.UpdatePlayerHP();
+            CurrentHP = PlayerData.Instance.UpdatePlayerHP();
             _playerHealthBar.SetCurrentHealth(PlayerData.Instance.UpdatePlayerHP());
         }
     }
@@ -93,17 +95,17 @@ public class Player : MonoBehaviour, IDamageable, IAttacker
         if (_isInvulnerable)
             return;
 
-        _unitStats.CurrentHp -= dmg;
+        CurrentHP -= dmg;
         _isInvulnerable = true;
         _time = 0f;
 
-        if (_unitStats.CurrentHp > 0)
+        if (CurrentHP > 0)
         {
             OnDamageAction?.Invoke();
             SoundManager.Instance.PlayHurtPlayerSound(transform.position, 0.8f);
         }
 
-        else if (_unitStats.CurrentHp <= 0)
+        else if (CurrentHP <= 0)
         {
             Die();
         }

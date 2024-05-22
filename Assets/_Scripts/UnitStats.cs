@@ -6,5 +6,4 @@ public class UnitStats : ScriptableObject
     public int MaxHp;
     public int Damage;
     public float Speed;
-    [HideInInspector] public int CurrentHp;
 }

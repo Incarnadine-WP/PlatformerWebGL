@@ -21,10 +21,10 @@ public class HealPot : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            player.PlayerStats.CurrentHp += _heal;
+            player.CurrentHP += _heal;
 
-            if (player.PlayerStats.CurrentHp > player.PlayerStats.MaxHp)
-                player.PlayerStats.CurrentHp = player.PlayerStats.MaxHp;
+            if (player.CurrentHP > player.PlayerStats.MaxHp)
+                player.CurrentHP = player.PlayerStats.MaxHp;
 
             player.OnHealAction?.Invoke();
             PlayVFX();

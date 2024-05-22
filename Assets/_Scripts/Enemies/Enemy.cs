@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour, IDamageable, IAttacker
     private Collider2D _collider2D;
     private Rigidbody2D _rigidbody2D;
     private bool _isDead = false;
+    private int _currentHP;
 
     public UnityAction OnDeathAction;
     public UnityAction OnDamageAction;
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour, IDamageable, IAttacker
 
     private void Awake()
     {
-        _unitStats.CurrentHp = _unitStats.MaxHp;
+        _currentHP = _unitStats.MaxHp;
         _player = (Player)FindObjectOfType(typeof(Player));
         _collider2D = GetComponent<Collider2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -45,13 +46,13 @@ public class Enemy : MonoBehaviour, IDamageable, IAttacker
         if (IsInvulnerable)
             return;
 
-        _unitStats.CurrentHp -= damage;
+        _currentHP -= damage;
         OnDamageAction?.Invoke();
-        _healthBar.SetCurrentHealth(_unitStats.CurrentHp);
+        _healthBar.SetCurrentHealth(_currentHP);
         SoundManager.Instance.PlayHurtEnemySound(transform.position, 0.3f);
         //_animator.Play("Damage");
 
-        if (_unitStats.CurrentHp <= 0)
+        if (_currentHP <= 0)
         {
             Die();
         }

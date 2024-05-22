@@ -1311,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 7419494905354242460, guid: 0d062f86af68a5e468cc7ffc9ce837a7, type: 3}
       propertyPath: _unitStats
       value: 
-      objectReference: {fileID: 11400000, guid: d6da83af8abf91541b5612e79e77e67c, type: 2}
+      objectReference: {fileID: 11400000, guid: 5f9e665c0ee4a5849af2942fd2cc7bc4, type: 2}
     - target: {fileID: 7419494905354242460, guid: 0d062f86af68a5e468cc7ffc9ce837a7, type: 3}
       propertyPath: _chaseRadius
       value: 
@@ -5989,7 +5989,7 @@ PrefabInstance:
     - target: {fileID: 7419494905354242460, guid: 0d062f86af68a5e468cc7ffc9ce837a7, type: 3}
       propertyPath: _unitStats
       value: 
-      objectReference: {fileID: 11400000, guid: 8c0f1e6ab1e53e443a5596101d67f105, type: 2}
+      objectReference: {fileID: 11400000, guid: 5f9e665c0ee4a5849af2942fd2cc7bc4, type: 2}
     - target: {fileID: 7419494905354242460, guid: 0d062f86af68a5e468cc7ffc9ce837a7, type: 3}
       propertyPath: _chaseRadius
       value: 

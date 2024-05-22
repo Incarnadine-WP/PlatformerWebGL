@@ -71,7 +71,7 @@ public class BossEnterStone : MonoBehaviour
             OnEnterBossScene?.Invoke();
             yield return delay;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            PlayerData.Instance.SavePlayerHP(Player.Instance.PlayerStats.CurrentHp);
+            PlayerData.Instance.SavePlayerHP(Player.Instance.CurrentHP);
         }
         else if (_playerNextToBossStone)
         {
